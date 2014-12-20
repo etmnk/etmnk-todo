@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141220022930) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "events", force: true do |t|
     t.integer  "owner_id"
     t.string   "name",       null: false
@@ -24,7 +27,7 @@ ActiveRecord::Schema.define(version: 20141220022930) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["owner_id"], name: "index_events_on_owner_id"
+  add_index "events", ["owner_id"], name: "index_events_on_owner_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "provider",   null: false
@@ -35,6 +38,6 @@ ActiveRecord::Schema.define(version: 20141220022930) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
+  add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
 
 end
