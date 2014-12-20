@@ -40,3 +40,7 @@ gem 'spring',        group: :development
 
 gem 'omniauth', '~> 1.2.1'
 gem 'omniauth-twitter', '~> 1.0.1'
+
+group :production do
+  gem 'rails_12factor'
+end
