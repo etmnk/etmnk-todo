@@ -46,4 +46,5 @@ gem 'omniauth-twitter', '~> 1.0.1'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'passenger', '= 5.0.0.beta1'
 end
